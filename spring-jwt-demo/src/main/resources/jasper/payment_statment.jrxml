@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payment_statment" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67b60538-b8a0-4cf2-aec0-f5a6c5a8b5e7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<parameter name="id" class="java.lang.Long"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM payments WHERE id=$P{id}]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="benefactor_account" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="benefactor_account"/>
+		<property name="com.jaspersoft.studio.field.label" value="benefactor_account"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="benefactor_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="benefactor_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="benefactor_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="beneficiary_account" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="beneficiary_account"/>
+		<property name="com.jaspersoft.studio.field.label" value="beneficiary_account"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="beneficiary_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="beneficiary_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="beneficiary_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="created_at" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="message" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="message"/>
+		<property name="com.jaspersoft.studio.field.label" value="message"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="motif" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="motif"/>
+		<property name="com.jaspersoft.studio.field.label" value="motif"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<field name="reference" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="reference"/>
+		<property name="com.jaspersoft.studio.field.label" value="reference"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payments"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="20" width="160" height="50" uuid="e2b4ea04-ecb9-494d-a2af-63639b22b1cb"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="190" y="10" width="310" height="55" uuid="855b275c-adf1-4c64-945a-9e4b655e9c7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Statment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="10" width="60" height="30" uuid="32812010-e960-4620-a0a9-9b697a686f2e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REF  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="630" y="10" width="180" height="30" uuid="318b5b0e-d2d6-4d59-a079-45c49e824454"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="630" y="45" width="180" height="30" uuid="94782c0d-fedd-4857-8cc5-7f197e78e628"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{created_at}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="570" y="45" width="60" height="30" uuid="4bb183b7-6d8d-4ce7-848a-b3beea7beed8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT  :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="10" width="179" height="30" uuid="2f4f3cb9-90a4-40f0-929b-9b0e13eef0e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Details  :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="135" splitType="Stretch">
+			<textField pattern="###,###.00">
+				<reportElement x="660" y="10" width="137" height="30" uuid="6409f9c0-26cc-42d3-93bb-921d04538657"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="10" width="133" height="30" uuid="3a531432-3939-4492-a90f-28993ffb8c61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefactor_account}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="60" width="133" height="30" uuid="ac1a448f-45de-42cb-a549-36a12d191afa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefactor_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="10" width="133" height="30" uuid="1317d16f-f047-4208-93e6-e488fdf9b8a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{beneficiary_account}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="60" width="133" height="30" uuid="03ea204a-ff30-4bb7-adfb-ed4c49b8d959"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{beneficiary_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="60" width="147" height="30" uuid="39264fc6-a4f4-44e8-bba7-f6fbd5aa0f59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motif}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="60" width="150" height="30" uuid="f108b9f7-632b-422a-9537-1f6951b0b095"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Benefactor Name  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="10" width="157" height="30" uuid="39b400cb-8365-4c38-9e97-29e8e65f3ff7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Benefaciary Account  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="60" width="157" height="30" uuid="8ef8b074-0bea-41ac-8ee3-e41655a4c358"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiary Name  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="10" width="70" height="30" uuid="c20196bf-9501-4969-bcf6-7194785dceeb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="60" width="60" height="30" uuid="aba7b191-348c-4725-86ec-964f54a804b7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motif  :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="580" y="0" width="1" height="120" uuid="723175b3-bb22-43ee-82b7-e76353af53ec"/>
+			</line>
+			<line>
+				<reportElement x="270" y="0" width="1" height="120" uuid="cce16041-c614-4032-bd3c-aa6f2ea5b233"/>
+			</line>
+			<line>
+				<reportElement x="810" y="0" width="1" height="120" uuid="2f71e27e-9375-46bc-ac38-397dbaccb081"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="120" uuid="ca457414-9766-4474-8365-9d33109ef5c9"/>
+			</line>
+			<line>
+				<reportElement x="0" y="120" width="810" height="1" uuid="558ff9e7-cd70-4623-9002-a6e581025904"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="810" height="1" uuid="64008414-9085-4788-883c-332d61f31d54"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="10" width="120" height="50" uuid="9e8696f3-a784-4d80-866e-b4d9837efa43"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Benefactor                             Account :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="10" width="187" height="40" uuid="a1578a56-1c20-4623-a374-61e883d2d88c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="10" width="180" height="40" uuid="0f8a7063-b19e-4b14-8b24-7ec3036b2906"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client Signature]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

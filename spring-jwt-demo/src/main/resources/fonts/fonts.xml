@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="SansSerif">
+		<normal><![CDATA[fonts/sansserif/sansserif.ttf]]></normal>
+		<bold><![CDATA[fonts/sansserif/sansserif-bold.ttf]]></bold>
+		
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

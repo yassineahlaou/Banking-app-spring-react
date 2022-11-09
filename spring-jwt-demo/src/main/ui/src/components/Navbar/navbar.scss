@@ -1,0 +1,56 @@
+.navbar{
+	  width: 100%;
+    height: 70px;
+
+    background-color: #ff871e ;
+    color: black;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+
+    z-index: 3;
+    transition: all 0.5s ease;
+    
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    .right{
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	gap:30px;
+	.leave{
+		cursor:pointer;
+		display:flex;
+		align-items: center;
+		
+		
+	}
+	
+	
+}
+
+
+.cent{
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	gap:30px;
+		button{
+			font-size: 18px;
+			font-weight: 700;
+			border-radius:10px;
+			padding:7px 20px;
+			border:none;
+			background-color: transparent;
+			&:hover{
+				  background-color: rgba(0, 0, 0, 0.14);
+                   cursor: pointer;
+				
+			}
+			
+		}
+}
+}
