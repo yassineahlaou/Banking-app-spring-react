@@ -1,6 +1,6 @@
 package com.ahlaoujwtspring.pro.web;
 
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpHeaders;
@@ -15,30 +15,18 @@ public class LogoutCountroller {
 	
 	@RequestMapping(value = "/leave", method = RequestMethod.GET)
 	public ResponseEntity<?> logout(HttpServletRequest request) throws Exception{
-		
-		String requestTokenHeader = null;
 		String respo = "";
 		ResponseCookie cookie = null;
 		if (request.getCookies() != null) {
+			//clear the cookies from token after logout
 			respo = "Goodbye";
 			cookie = ResponseCookie.from("Authorization", null).maxAge(0).build();
-		
 		}
-		
-		
 		else {
 			respo = "Log in first";
 			cookie = ResponseCookie.from("Authorization", null).maxAge(0).build();
 		}
-		
-		
-		
-		
-		//return ResponseEntity.ok().headers(responseHeaders).body(new JwtResponse(token));
 		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString()).body(respo);
-		//return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}
-
-
 }
 

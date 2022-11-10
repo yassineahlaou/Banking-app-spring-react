@@ -1,20 +1,17 @@
 package com.ahlaoujwtspring.pro.web;
 
-import java.awt.Image;
-import java.io.InputStream;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
-import org.hibernate.validator.constraints.URL;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -33,7 +30,6 @@ import com.ahlaoujwtspring.pro.exception.LastnameEmpty;
 import com.ahlaoujwtspring.pro.exception.PasswordEmpty;
 import com.ahlaoujwtspring.pro.exception.PhoneEmpty;
 import com.ahlaoujwtspring.pro.model.JwtRequest;
-import com.ahlaoujwtspring.pro.model.JwtResponse;
 import com.ahlaoujwtspring.pro.repository.UserRepository;
 
 import net.bytebuddy.utility.RandomString;
@@ -46,11 +42,12 @@ public class RegisterController {
 	
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
-	  @Autowired
-	    private JavaMailSender mailSender;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	  
 	  
-	  @CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/register")
     public ResponseEntity <?> createUser(@RequestBody JwtRequest user , HttpServletRequest request) throws URISyntaxException ,UnsupportedEncodingException, MessagingException  {
 			if (user.getEmail() == null) {
@@ -69,6 +66,7 @@ public class RegisterController {
 				throw new PasswordEmpty();
 			}
 			
+			//validate email format
 			String expressions = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
 			Pattern pattern = Pattern.compile(expressions);
 			Matcher matcher = pattern.matcher(user.getEmail());
@@ -76,26 +74,31 @@ public class RegisterController {
 			if (!matcher.matches()) {
 				throw new EmailNotValid();
 			}
-		  
-		  JwtRequest emailexist = userRepo.findByemail(user.getEmail());
+			
+			//check if email already exist
+			JwtRequest emailexist = userRepo.findByemail(user.getEmail());
+			if (emailexist != null) {
+				throw new EmailAlreadyExist();
+			}
 		
-		if (emailexist != null) {
-			throw new EmailAlreadyExist();
-		}
+		    //encrypt password
+			user.setPassword(bcryptEncoder.encode(user.getPassword()));
+			
+			//set a random verification code for the new account
 		
-		
-		user.setPassword(bcryptEncoder.encode(user.getPassword()));
-		
-		 String randomCode = RandomString.make(64);
+			String randomCode = RandomString.make(64);
 		    user.setVerificationCode(randomCode);
 		    user.setEnabled(false);
-		
-		JwtRequest savedUser = userRepo.save(user);
-		sendVerificationEmail(user, getSiteURL(request));
-        //return ResponseEntity.created(new URI("/users" + savedUser.getId())).body(savedUser);
-       return ResponseEntity.ok().body(savedUser);
+		    
+		    //save user
+			JwtRequest savedUser = userRepo.save(user);
+			//send email for verif
+			sendVerificationEmail(user, getSiteURL(request));
+	 
+			return ResponseEntity.ok().body(savedUser);
     }
-	 // @CrossOrigin(origins = "http://localhost:3000")
+	 //this method is unusfull because we added manuelly the redirect url in email due to backend will forward request
+	//from backend to frontend with have a different port (different URL
 	private String getSiteURL(HttpServletRequest request) {
 		String siteURL = request.getRequestURL().toString();
         return siteURL.replace(request.getServletPath(), "");
@@ -103,6 +106,7 @@ public class RegisterController {
 	
 	 
 	private void sendVerificationEmail(JwtRequest user, String siteURL) throws MessagingException, UnsupportedEncodingException {
+		//design the email
 		String toAddress = user.getEmail();
 	    String fromAddress = "AhHLAOUBank@gmail.com";
 	    String senderName = "AHLAOU Bank";
@@ -119,22 +123,14 @@ public class RegisterController {
 	     //MIME message means “Multipurpose Internet Mail Extensions”. With MIME messages you can send HTML texts, and attach files (text, audio, images, etc)
 	    MimeMessage message = mailSender.createMimeMessage();
 	    MimeMessageHelper helper = new MimeMessageHelper(message);
-	     
 	    helper.setFrom(fromAddress, senderName);
 	    helper.setTo(toAddress);
 	    helper.setSubject(subject);
-	     
 	    content = content.replace("[[name]]", user.getFirstname() + ' ' + user.getLastname());
 	    String verifyURL = "http://localhost:3000" + "/login?code=" + user.getVerificationCode();
-	     
 	    content = content.replace("[[URL]]", verifyURL);
-	     
 	    helper.setText(content, true);
 	     
 	    mailSender.send(message);
-		
 	}
-
-	
-
 }
