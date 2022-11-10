@@ -1,108 +1,86 @@
 .main{
-	 background-image: url("../../../public/assets/main.png")  ; 
-  height: 100vh;
- 
-
-  /* Center and scale the image nicely */
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: center;
-  background-attachment: fixed;
-  overflow-y : hidden;
-  
-  .wrapper{
-	height:100%;
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		 position: relative;
-		 width: 50%;
-		
-		 .content{
-			width:70%;
+	  background-image: url("../../../public/assets/main.png")  ; 
+	  height: 100vh;
+	  background-position: center center;
+	  background-repeat: no-repeat;
+	  background-size: center;
+	  background-attachment: fixed;
+	  overflow-y : hidden;
+	  .wrapper{
+			height:100%;
 			display:flex;
-		justify-content: center;
-		//align-items: center;
-		flex-direction: column;
-		 gap: 15px;
-			
-		
-	 
-	 .intro{
-		margin-top: 20px;
-		font-size:15px;
-		font-weight: 700;
-		width:100%;
-	}
-	.buttons{
-				width:50%;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			position: relative;
+			width: 50%;
+			.content{
+				width:70%;
 				display:flex;
-				flex-direction: row;
-				gap:10px;
-				.goRegister{
-				  width: 140px;
-		  height: 45px;
-		  font-family: 'Roboto', sans-serif;
-		  font-size: 11px;
-		  text-transform: uppercase;
-		  letter-spacing: 2.5px;
-		  font-weight: 700;
-		  color: #000;
-		  background-color: #fff;
-		  border: none;
-		  border-radius: 45px;
-		  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-		  transition: all 0.3s ease 0s;
-		  cursor: pointer;
-		  outline: none;
-		  
-		
-				&:hover {
-					  background-color: #0000ff;
-					  box-shadow: 0px 15px 20px rgba(0, 0, 255, 0.4); //rgba : red green blue alpha
-					  color: #fff;
-					  transform: translateY(-7px);
-						
-						
-					
+				justify-content: center;
+				flex-direction: column;
+				gap: 15px;
+				.intro{
+					margin-top: 20px;
+					font-size:15px;
+					font-weight: 700;
+					width:100%;
+				}
+				.buttons{
+					width:50%;
+					display:flex;
+					flex-direction: row;
+					gap:10px;
+					.goRegister{
+						  width: 140px;
+						  height: 45px;
+						  font-family: 'Roboto', sans-serif;
+						  font-size: 11px;
+						  text-transform: uppercase;
+						  letter-spacing: 2.5px;
+						  font-weight: 700;
+						  color: #000;
+						  background-color: #fff;
+						  border: none;
+						  border-radius: 45px;
+						  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+						  transition: all 0.3s ease 0s;
+						  cursor: pointer;
+						  outline: none;
+						  &:hover {
+								  background-color: #0000ff;
+								  box-shadow: 0px 15px 20px rgba(0, 0, 255, 0.4); //rgba : red green blue alpha
+								  color: #fff;
+								  transform: translateY(-7px);
+						  }
 					}
+					.goLogin{
+						  width: 140px;
+						  height: 45px;
+						  font-family: 'Roboto', sans-serif;
+						  font-size: 11px;
+						  text-transform: uppercase;
+						  letter-spacing: 2.5px;
+						  font-weight: 700;
+						  color: #000;
+						  background-color: #fff;
+						  border: none;
+						  border-radius: 45px;
+						  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+						  transition: all 0.3s ease 0s;
+						  cursor: pointer;
+						  outline: none;
+						  &:hover {
+							  background-color: #0000ff;
+							  box-shadow: 0px 15px 20px rgba(0, 0, 255, 0.4);
+							  color: #fff;
+							  transform: translateY(-7px);
+						  }
 					}
-		.goLogin{
-			width: 140px;
-		  height: 45px;
-		  font-family: 'Roboto', sans-serif;
-		  font-size: 11px;
-		  text-transform: uppercase;
-		  letter-spacing: 2.5px;
-		  font-weight: 700;
-		  color: #000;
-		  background-color: #fff;
-		  border: none;
-		  border-radius: 45px;
-		  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-		  transition: all 0.3s ease 0s;
-		  cursor: pointer;
-		  outline: none;
-		  
-		
-				&:hover {
-					  background-color: #0000ff;
-					  box-shadow: 0px 15px 20px rgba(0, 0, 255, 0.4);
-					  color: #fff;
-					  transform: translateY(-7px);
-						
-						
-					
-					}
-
-		}
-	
-}
-}
-	
- 
-}
+				
+				}//end buttons
+			}//end content
+		}//end wrapper
 }
                
 	

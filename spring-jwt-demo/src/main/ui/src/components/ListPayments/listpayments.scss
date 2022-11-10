@@ -1,162 +1,120 @@
 .listpayments{
-	
 	background-color: rgb(240, 240, 240);
 	min-height: 100vh;
 	max-height: fit-content;
-	
 	display:flex;
 	align-items: center;
-	//justify-content: center;
 	flex-direction: column;
 	padding-top: 100px;
 	padding-bottom: 70px;
-	
 	.wrapper{
 		display:flex;
-		//align-items: center;
 		flex-direction:column;
 		width:90%;
 		.head{
-			
 			flex-direction: row;
-		margin-bottom: 10px;
-		.searchDate{
-			float:left;
-			display:flex;
-			align-items: center;
-			gap:7px;
-			flex-direction: row;
-			.start{
-				
+			margin-bottom: 10px;
+			.searchDate{
+				float:left;
+				display:flex;
+				align-items: center;
+				gap:7px;
+				flex-direction: row;
+				.start{
+					
 				}
-				
 				.end{
 					
 				}
-			
-			
-			.searchbydate{
-				cursor:pointer
-				
+				.searchbydate{
+					cursor:pointer
+					
+				}
 			}
-		}
-		
-		.searchRef{
-			float:right;
-			display:flex;
-			align-items: center;
-			gap:7px;
-			.ref{
-				
-			}
-			.icon{
-				cursor:pointer;
-				
-			}
-		}
-		}
-		
-		
-		
-		
-	}
-	
+			.searchRef{
+					float:right;
+					display:flex;
+					align-items: center;
+					gap:7px;
+					.ref{
+						
+					}
+					.icon{
+						cursor:pointer;
+						
+					}
+				}
+		}//end head
+	}//end wrapper
 	.data{
 		width:90%;
-		
 		margin-top:15px;
-		
 		.table{
 			border-collapse: collapse;
 			width:100%;
 			.tableheader{
 				background-color: #ff871e;
-			
   				th{
-				border: 1px solid rgb(120, 120, 120);
-  				padding: 8px;
-  				
-  				text-align: left;
+					border: 1px solid rgb(120, 120, 120);
+	  				padding: 8px;
+	  				text-align: left;
   				}
-  				}
-  				.spinner{
+  			}
+			.spinner{
 				width:50px;
 				height:50px;
-				//display:none;
 			}
 			.hide{
 				width:50px;
 				height:50px;
 				display:none;
-				
 			}
-  				.trdark{
-					background-color:  #f4c9a3 ;
-						.others{
-							border: 1px solid rgb(120, 120, 120);
-  				padding: 8px;
-  				
-  				text-align: left;
-  				
-  							
-						}
-						.invoice{
-							border: 1px solid rgb(120, 120, 120);
-  				
-									text-align: center;
-									cursor:pointer;
-									
-									.spinner{
-				width:50px;
-				height:50px;
-				//display:none;
-			}
-			.hide{
-				width:50px;
-				height:50px;
-				display:none;
-				
-			}
-								}
-	
+			.trdark{
+				background-color:  #f4c9a3 ;
+				.others{
+					border: 1px solid rgb(120, 120, 120);
+					padding: 8px;
+					text-align: left;
+				}
+				.invoice{
+					border: 1px solid rgb(120, 120, 120);
+					text-align: center;
+					cursor:pointer;
+					.spinner{
+						width:50px;
+						height:50px;
 					}
-					.trlight{
-						.others{
-							border: 1px solid rgb(120, 120, 120);
-  				padding: 8px;
-  				
-  				text-align: left;
-  				
-  								
-						}
-						.invoice{
-							border: 1px solid rgb(120, 120, 120);
-  				cursor:pointer;
-							
-									text-align: center;
-								}
-								.nodata{
-							border: 1px solid rgb(120, 120, 120);
-  				
-  				
-  						text-align: center;
-						
+					.hide{
+						width:50px;
+						height:50px;
+						display:none;
 					}
-					}
-					
-				
-				
+				}
 			}
-			
-			
-			}
-			
-			.add{
+			.trlight{
+				.others{
+					border: 1px solid rgb(120, 120, 120);
+					padding: 8px;
+					text-align: left;
+				}
+				.invoice{
+					border: 1px solid rgb(120, 120, 120);
+					cursor:pointer;
+					text-align: center;
+				}
+				.nodata{
+					border: 1px solid rgb(120, 120, 120);
+					text-align: center;
 				
-				margin-top: 10px;
-				width:20%;
+				}
+			}
+		}	
+	}//end data
 			
-				 height: 45px;
+	.loadmore{		
+		  margin-top: 10px;
+		  width:20%;
+		  height: 45px;
 		  font-family: 'Roboto', sans-serif;
 		  font-size: 11px;
 		  text-transform: uppercase;
@@ -170,25 +128,15 @@
 		  transition: all 0.3s ease 0s;
 		  cursor: pointer;
 		  outline: none;
-		  
+		  &:hover {
+			  background-color: white;
+			  box-shadow: 0px 15px 20px rgb(120, 120, 120); //rgba : red green blue alpha
+			  color: #000;
+		 }
+	}	
 		
-				&:hover {
-					  background-color: white;
-					  box-shadow: 0px 15px 20px rgb(120, 120, 120); //rgba : red green blue alpha
-					  color: #000;
-					 // transform: translateY(-7px);
-						
-						
-					
-					}
-			}
-		
-		
-		
-	}
-	
-	
-	.toast{
+}
+.toast{
 	margin-top: 60px;
 }
 	

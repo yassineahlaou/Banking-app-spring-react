@@ -1,6 +1,6 @@
 .makedeposit{
     position: fixed;
-   background: #00000050;
+    background: #00000050;
     width:100%;
     display: flex;
     align-items: center;
@@ -9,11 +9,8 @@
     z-index: 2;
     top: 0;
     left: 0;
-    
-      
     .wrapper{
-     	animation: popout 0.2s ease;
-    
+     	 animation: popout 0.2s ease;
          display: flex;
          flex-direction: column; 
          position: relative;
@@ -29,116 +26,84 @@
          padding: 20px;
          border: 1px solid #999;
          overflow: auto;
-        
-         
          .up{
 			display:flex;
 			align-items: center;
 			gap:10px;
-			//flex-direction: row;
-			 p{
-         
+			p{
 				font-size: 40px;
-         
-         }
-         .icone{
-	color:#ff871e;
+         	}
+           .icone{
+				color:#ff871e;
 				font-size: 40px;
-	
-}
-			
-	}
-	
-	.one{
-		display:flex;
-		 align-items: center ;
-		
-		 width:100%;
-
-            // justify-content: space-between;
-
-        
-         input{
-			width:90%;
-          border: solid 1.5px #D3D3D3;
-		  height:35px;
-			border-radius: 5px;
-			border: solid 1.5px #D3D3D3;
-			-webkit-padding-start: 10px;
-			font-size: 12.6pt;
-			transition: 0.5s;
-			text-align: left;
-			&:hover{
-			  box-shadow: 0 0 5pt 0.5pt #D3D3D3;
 			}
-			&:focus {
-			  box-shadow: 0 0 5pt 2pt #D3D3D3;
-			  outline-width: 0px;
-			}
-         }
-         .person{
-	width:10%;
-	 font-size: 30px;
-		
-			
 		}
-         }
-        
-
-}
-        
-         button{
-	align-self: center;
-           	margin-top: 10px;
-				width:50%;
-			padding-top:15px;
-			padding-bottom: 15px;
-				 height: 45px;
-		  font-family: 'Roboto', sans-serif;
-		  font-size: 11px;
-		  text-transform: uppercase;
-		  letter-spacing: 2.5px;
-		  font-weight: 700;
+		.one{
+			display:flex;
+			align-items: center ;
+			width:100%;
+	         input{
+				width:90%;
+		        border: solid 1.5px #D3D3D3;
+				height:35px;
+				border-radius: 5px;
+				border: solid 1.5px #D3D3D3;
+				-webkit-padding-start: 10px;
+				font-size: 12.6pt;
+				transition: 0.5s;
+				text-align: left;
+				&:hover{
+				  box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+				}
+				&:focus {
+				  box-shadow: 0 0 5pt 2pt #D3D3D3;
+				  outline-width: 0px;
+				}
+	         }
+	         .person{
+				 width:10%;
+				 font-size: 30px;
+			 }
+	     }
+	}//end wrapper
+    button{
+		align-self: center;
+	   	margin-top: 10px;
+		width:50%;
+		padding-top:15px;
+		padding-bottom: 15px;
+	 	height: 45px;
+	 	font-family: 'Roboto', sans-serif;
+	  	font-size: 11px;
+	  	text-transform: uppercase;
+		letter-spacing: 2.5px;
+		font-weight: 700;
+		color: #000;
+		background-color: #ff871e;
+		border: none;
+		border-radius: 45px;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease 0s;
+		cursor: pointer;
+		outline: none;
+		&:hover {
+		  background-color: white;
+		  box-shadow: 0px 15px 20px #ff871e; //rgba : red green blue alpha
 		  color: #000;
-		  background-color: #ff871e;
-		  border: none;
-		  border-radius: 45px;
-		  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-		  transition: all 0.3s ease 0s;
-		  
-		  cursor: pointer;
-		  outline: none;
-		  
-		
-				&:hover {
-					  background-color: white;
-					  box-shadow: 0px 15px 20px #ff871e; //rgba : red green blue alpha
-					  color: #000;
-					  transform: translateY(-7px);
-						
-						
-					
-					}
-             
-         }
-      
-
-         .icon{
-             position: absolute;
-             top: 10px;
-             right: 10px;
-             cursor: pointer;
-             
-         }
-         
-}
+		  transform: translateY(-7px);
+		}  
+    }
+    .icon{
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         cursor: pointer;
+     }      
+}//end make
 @keyframes popout {
     from{transform:scale(0)}
-   
     to{transform:scale(1)}
 }
-
-
 .hide{
     display: none;
 }

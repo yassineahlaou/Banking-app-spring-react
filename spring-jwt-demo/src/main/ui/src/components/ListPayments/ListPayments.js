@@ -198,7 +198,7 @@ export default function ListPayments(){
 		 </div>//end data
 		
 		
-		{ next < listOfPayments.length && <button className="add" onClick={handleLoadMore}>Load More</button>}
+		{ next < listOfPayments.length && <button className="loadmore" onClick={handleLoadMore}>Load More</button>}
 		</div>//end listPayments
 		</>
 	)
