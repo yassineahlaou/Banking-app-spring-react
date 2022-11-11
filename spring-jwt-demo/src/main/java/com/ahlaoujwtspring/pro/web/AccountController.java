@@ -36,7 +36,7 @@ public class AccountController {
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/addAccount")
-    public ResponseEntity <?> creatAccount(@RequestBody Account account ) throws URISyntaxException  {
+    public Account creatAccount(@RequestBody Account account ) throws URISyntaxException  {
 			//validate inputs
 			if (account.getAccountname() == "") {
 				throw new AccountnameEmpty();
@@ -73,8 +73,8 @@ public class AccountController {
 			
 			//save new account record in model
 			Account savedAccount = accountRepo.save(account);
-			
-			return ResponseEntity.ok().body(savedAccount);
+			return savedAccount;
+			//return ResponseEntity.ok().body(savedAccount);
     }
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/allAccounts")
