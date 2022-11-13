@@ -168,16 +168,18 @@ public class PaymentController {
 	 
 	 @CrossOrigin(origins = "http://localhost:3000")
 	 @GetMapping("/allPayments")
-     public ResponseEntity <?> allPayments()   {
+     public List<Payment> allPayments()   {
 		List<Payment> listPayments = paymentRepo.findAll(Sort.by(Sort.Direction.DESC, "id"));
-		return ResponseEntity.ok().body(listPayments);
+		return listPayments;
+		//return ResponseEntity.ok().body(listPayments);
 	 }
 	 
 	 @CrossOrigin(origins = "http://localhost:3000")
 	 @GetMapping("/getPayment/{reference}")
-	 public  ResponseEntity <?> getPayment(@PathVariable String reference){
+	 public  Payment getPayment(@PathVariable String reference){
 		Payment foundPayment = paymentRepo.findByreference(reference);
-		return ResponseEntity.ok(foundPayment);
+		return foundPayment;
+		//return ResponseEntity.ok(foundPayment);
 	 }
 	 
 	 @CrossOrigin(origins = "http://localhost:3000")
